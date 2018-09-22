@@ -36,8 +36,12 @@
 #
 #    $ python3 setup.py sdist upload
 
+try:
+    from setuptools import setup, find_packages
+except ImportError:
+    from distutils.core import setup
+
 from tktools import __version__ as VERSION
-from setuptools import setup, find_packages
 
 # See :  http://pypi.python.org/pypi?%3Aaction=list_classifiers
 CLASSIFIERS = ['Development Status :: 4 - Beta',
@@ -47,7 +51,6 @@ CLASSIFIERS = ['Development Status :: 4 - Beta',
                'Operating System :: OS Independent',
                'Programming Language :: Python :: 3',
                'Topic :: Software Development :: Libraries']
-
 
 # You can either specify manually the list of packages to include in the
 # distribution or use "setuptools.find_packages()" to include them
